@@ -1,0 +1,15 @@
+.nav-tabs .nav-link.active {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.danger-color {
+    color: red;
+}
+
+@media(min-width: 540px) {
+    .container {
+        width: 500px;
+    }
+}

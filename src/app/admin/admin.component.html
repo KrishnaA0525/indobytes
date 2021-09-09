@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-success">
+    <div class="container">
+        <a href="#" class="navbar-brand" routerLink="/adminDashboard">Admin</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link" [routerLink]="['/login']" [queryParams]="{ u: 'admin' }">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <ag-grid-angular style="width: 100%; height: 300px;" class="ag-theme-alpine" [rowData]="users"
+        [columnDefs]="columnDefs" [defaultColDef]="defaulfColDefs"></ag-grid-angular>
+</div>

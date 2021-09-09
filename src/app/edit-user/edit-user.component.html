@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+        <h3 class="mt-3">Edit</h3>
+        <div class="form-group">
+            <label for="id" class="control-label">User ID</label>
+            <input type="text" id="id" class="form-control" formControlName="id" name="id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="name" class="control-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="username" class="control-label">Username</label>
+            <input type="text" class="form-control" formControlName="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" name="email">
+        </div>
+
+        <button type="button" class="btn btn-danger mr-2" (click)="cancel()">Cancel</button>
+        <button class="btn btn-outline-primary">Save</button>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-warning">
+    <div class="container">
+        <a href="#" class="navbar-brand" routerLink="adminDashboard">User</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button type="button" class="btn btn-link nav-link mat-typography" (click)="openResetPasswordWindow()">Reset Password</button>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" [routerLink]="['/login']" [queryParams]="{ u: 'user' }">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container bg-light">
+    <div class="row pt-3 pb-2">
+        <div class="col-sm m-2">
+            <div class="row">
+                <div class="col"><b>User ID:</b></div>
+                <div class="col">{{ user.id }}</div>
+            </div>
+        </div>
+        <div class="col-sm m-2"><b>Name:</b> {{ user.name }}</div>
+        <div class="col-sm m-2"><b>Username:</b> {{ user.username }}</div>
+        <div class="col-sm m-2"><b>Email:</b> {{ user.email }}</div>
+        <div class="col-sm m-2">
+            <b>Hobbies:</b>
+            <div *ngFor="let hobby of user.hobbies">{{hobby}}</div>
+        </div>
+    </div>
+</div>

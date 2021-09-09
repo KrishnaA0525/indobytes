@@ -1,0 +1,9 @@
+
+<div></div>
+<section>
+    <p>{{ modalData.message }}</p>
+</section>
+<section>
+    <span>Please </span>
+    <a href="#" routerLink="/login" [queryParams]="{ u: 'user'}" (click)="dialogRef.close()"> Login </a>
+</section>

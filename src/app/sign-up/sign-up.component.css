@@ -1,0 +1,13 @@
+.form-froup {
+    margin-bottom: 1rem;
+}
+
+.profile-pic-form-control {
+    display: block;
+}
+
+@media(min-width: 540px) {
+    .container {
+        width: 500px;
+    }
+}

@@ -1,0 +1,90 @@
+<div class="container">
+	<h2>Welcome to IndoBytes</h2>
+	<form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+		<h4>User Registration Form</h4>
+		<div class="form-froup">
+			<label for="name">Name*</label>
+			<input type="text" id="name" class="form-control" formControlName="name">
+            <div class="helper-block" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
+                <div [ngSwitch]="true">
+                    <div *ngSwitchCase="signupForm.get('name').errors.required">Password is required!</div>
+                </div>
+            </div>
+		</div>
+		<div class="form-froup">
+			<label for="email">Email*</label>
+			<input type="email" id="email" class="form-control" formControlName="email">
+            <div class="helper-block" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+                <div [ngSwitch]="true">
+                    <div *ngSwitchCase="signupForm.get('email').errors.required">Email is required!</div>
+                    <div *ngSwitchCase="signupForm.get('email').errors.email">Invalid Email!</div>
+                </div>
+            </div>
+		</div>
+		<div class="form-froup">
+			<label for="username">Username*</label>
+			<input type="text" id="username" class="form-control" formControlName="username">
+            <div class="helper-block" *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched">
+                <div [ngSwitch]="true">
+                    <div *ngSwitchCase="signupForm.get('username').errors.required">Username is required!</div>
+                    <div *ngSwitchCase="signupForm.get('username').errors.duplicate">Username <i>{{ signupForm.get('username').value }}</i> is already taken!</div>
+                </div>
+            </div>
+		</div>
+		<div class="form-froup">
+			<label for="password">Password*</label>
+			<input type="password" id="password" class="form-control" formControlName="password">
+            <div class="helper-block" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
+                <div [ngSwitch]="true">
+                    <div *ngSwitchCase="signupForm.get('password').errors.required">Password is required!</div>
+                    <div *ngSwitchCase="signupForm.get('password').errors.short">Password should be minimum 6 char long!</div>
+                    <div *ngSwitchCase="signupForm.get('password').errors.long">Password is too long!</div>
+                    <div *ngSwitchCase="signupForm.get('password').errors.number">Password should contain atleast 1 number!</div>
+                    <div *ngSwitchCase="signupForm.get('password').errors.letter">Password should contain atleast 1 letter!</div>
+                    <div *ngSwitchCase="signupForm.get('password').errors.specialChar">Password should contain atleast 1 special char!</div>
+                </div>
+            </div>
+		</div>
+		<div class="form-froup">
+			<label for="confirmPassword">Confirm Password*</label>
+			<input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+            <div class="helper-block" *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
+                <div [ngSwitch]="true">
+                    <div *ngSwitchCase="signupForm.get('confirmPassword').errors.misMatch">Password and Confirm Password should be same!</div>
+                </div>
+            </div>
+		</div>
+		<div class="form-froup">
+			<label for="profilePic">Profile Picture</label>
+			<input type="file" id="profilePic" class="profile-pic-form-control" formControlName="profilePic">
+		</div>
+		<div class="form-froup">
+			<label for="gender">
+				Male <input type="radio" id="male" [value]="'male'" class="" formControlName="gender">
+				Female <input type="radio" id="female" [value]="'female'" class="" formControlName="gender">
+			</label>
+		</div>
+        <div class="form-froup">
+            <label for="education">Education</label>
+            <select class="form-control" name="education" id="education" formControlName="education">
+                <option value="null">Select</option>
+                <option value="1">Masters</option>
+                <option value="2">Graduation</option>
+                <option value="3">Diploma </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Hobbies</label>
+            <div formArrayName="hobbies" *ngFor="let hobby of hobbies; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                <span class="ml-1">{{hobby}}</span>
+            </div>
+        </div>
+		<div>
+			<button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign-Up</button>
+		</div>
+	</form>
+    <div class="bg-light mt-3">
+        <span> Already have an account? <a href="#" [routerLink]="['/login']" [queryParams]="{ u: 'user' }">Login</a> here.</span>
+    </div>
+</div>
