@@ -19,12 +19,37 @@
                 <div class="col">{{ user.id }}</div>
             </div>
         </div>
-        <div class="col-sm m-2"><b>Name:</b> {{ user.name }}</div>
-        <div class="col-sm m-2"><b>Username:</b> {{ user.username }}</div>
-        <div class="col-sm m-2"><b>Email:</b> {{ user.email }}</div>
         <div class="col-sm m-2">
-            <b>Hobbies:</b>
-            <div *ngFor="let hobby of user.hobbies">{{hobby}}</div>
+            <div class="row">
+                <div class="col"><b>Name:</b></div>
+                <div class="col">{{ user.name }}</div>
+            </div>
+        </div>
+        <div class="col-sm m-2">
+            <div class="row">
+                <div class="col"><b>Username:</b></div>
+                <div class="col">{{ user.username }}</div>
+            </div>
+        </div>
+        <div class="col-sm m-2">
+            <div class="row">
+                <div class="col"><b>Email:</b></div>
+                <div class="col">{{ user.email }}</div>
+            </div>
+        </div>
+        <div class="col-sm m-2">
+            <div class="row">
+                <div class="col"><b>Hobbies:</b></div>
+                <div class="col">
+                    <div *ngFor="let hobby of user.hobbies">{{hobby}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm m-2">
+            <div class="row">
+                <div class="col"><b>Highest Qualification:</b></div>
+                <div class="col">{{ user.education }}</div>
+            </div>
         </div>
     </div>
 </div>

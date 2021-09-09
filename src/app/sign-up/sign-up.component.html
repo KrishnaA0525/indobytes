@@ -7,7 +7,7 @@
 			<input type="text" id="name" class="form-control" formControlName="name">
             <div class="helper-block" *ngIf="signupForm.get('name').invalid && signupForm.get('name').touched">
                 <div [ngSwitch]="true">
-                    <div *ngSwitchCase="signupForm.get('name').errors.required">Password is required!</div>
+                    <div *ngSwitchCase="signupForm.get('name').errors.required">Name is required!</div>
                 </div>
             </div>
 		</div>

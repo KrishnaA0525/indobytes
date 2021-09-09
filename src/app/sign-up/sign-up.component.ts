@@ -18,14 +18,14 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      "name": ["a", Validators.required],
-      email: ["aa@b.com11", [Validators.required, Validators.email]],
-      username: ["a", [Validators.required, this.checkDuplicateUsername.bind(this)]],
-      password: ["aA1aaaaa!", [Validators.required, this.passwordPatternValidator.bind(this)]],
-      confirmPassword: ["aA1aaaaa!", [Validators.required, this.confirmPasswordValidator.bind(this)]],
+      "name": [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required, this.checkDuplicateUsername.bind(this)]],
+      password: [null, [Validators.required, this.passwordPatternValidator.bind(this)]],
+      confirmPassword: [null, [Validators.required, this.confirmPasswordValidator.bind(this)]],
       profilePic: [null],
       gender: ["male"],
-      education: [null],
+      education: [null, Validators.required],
       hobbies: this.formBuilder.array(this.hobbies.map((x) => false))
     });
   }
